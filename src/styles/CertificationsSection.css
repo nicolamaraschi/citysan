@@ -1,33 +1,202 @@
 .certifications-section {
-  padding: 60px 0;
+  padding: 80px 0;
   background-color: white;
+  position: relative;
 }
 
 .certifications-section h2 {
   text-align: center;
   color: var(--primary-color);
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  font-size: 2.2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-divider {
+  height: 3px;
+  width: 70px;
+  background-color: var(--accent-color);
+  margin: 0 auto 30px;
 }
 
 .certification-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .certification-logos {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.certification-logo {
+  flex: 0 0 calc(33.333% - 20px);
+  min-width: 200px;
+  padding: 25px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.certification-logo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.certification-logo.active {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background-color: #f0f8ff;
+}
+
+.cert-title {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.cert-preview {
+  height: 120px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.certification-logo:hover .cert-preview {
+  transform: scale(1.1);
+}
+
+.cert-view {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.certification-logo:hover .cert-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.certification-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.certification-modal-content {
+  position: relative;
+  max-width: 85%;
+  max-height: 85vh;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.cert-full-image {
+  max-width: 100%;
+  max-height: calc(85vh - 60px);
+  object-fit: contain;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #444;
+  z-index: 10;
 }
 
 blockquote {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
   border-left: 5px solid var(--primary-color);
   background-color: var(--light-gray);
   font-style: italic;
   line-height: 1.8;
+  position: relative;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+blockquote::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 60px;
+  color: var(--primary-color);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .certifications-section {
+    padding: 60px 0;
+  }
+  
+  .certification-logos {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .certification-logo {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  blockquote {
+    padding: 20px 15px 20px 25px;
+    font-size: 0.95rem;
+  }
 }
