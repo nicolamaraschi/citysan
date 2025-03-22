@@ -1,0 +1,10 @@
+.map-container {
+  width: 100%;
+  height: 450px;
+}
+
+.map-container iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}

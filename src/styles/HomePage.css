@@ -1,0 +1,62 @@
+.section-what-we-do {
+  background-color: var(--light-gray);
+  text-align: center;
+  padding: 50px 0;
+}
+
+.section-what-we-do h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.section-what-we-do p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-preview {
+  padding: 60px 0;
+  background-color: var(--light-gray);
+}
+
+.about-preview h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.read-more-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  margin-top: 20px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.read-more-button:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.contact-preview {
+  padding: 60px 0;
+}
+
+.contact-preview h2 {
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+.contact-preview address {
+  font-style: normal;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.contact-preview h3 {
+  color: var(--primary-color);
+  margin-top: 20px;
+}

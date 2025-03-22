@@ -1,0 +1,33 @@
+.certifications-section {
+  padding: 60px 0;
+  background-color: white;
+}
+
+.certifications-section h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+.certification-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.certification-logos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+blockquote {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-left: 5px solid var(--primary-color);
+  background-color: var(--light-gray);
+  font-style: italic;
+  line-height: 1.8;
+}
