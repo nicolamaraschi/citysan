@@ -1,11 +1,7 @@
-// Versione finale del file ContactPage.js con animazioni
-// Salva questo codice in src/pages/ContactPage.js
-
 import React from 'react';
 import Map from '../components/Map';
 import ContactForm from '../components/ContactForm';
 import '../styles/ContactPage.css';
-import '../styles/animations.css'; // Importa le animazioni
 
 function ContactPage() {
   return (
@@ -19,9 +15,13 @@ function ContactPage() {
       
       <section className="contact-info-section">
         <div className="container">
-          <div className="section-header fade-in">
-            <h2>I nostri dettagli</h2>
+          <div className="section-header">
+            <h2>La nostra sede</h2>
             <div className="section-divider"></div>
+          </div>
+          
+          <div className="company-image-wrapper fade-in">
+            <img src="/azienda.jpg" alt="Sede Citysan" className="company-image" />
           </div>
           
           <div className="contact-cards">

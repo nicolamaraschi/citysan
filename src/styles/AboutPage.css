@@ -245,13 +245,7 @@
     position: relative;
   }
   
-  .about-image-container {
-    height: 400px;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #0066cc;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-  }
+
   
   .about-image-overlay {
     position: absolute;
@@ -259,7 +253,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 102, 204, 0.7) 0%, rgba(0, 153, 255, 0.7) 100%);
+    /*background: linear-gradient(135deg, rgba(0, 102, 204, 0.7) 0%, rgba(0, 153, 255, 0.7) 100%);
+    */
     z-index: 1;
   }
   

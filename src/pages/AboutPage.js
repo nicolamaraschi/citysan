@@ -30,6 +30,7 @@ function AboutPage() {
             </div>
             <div className="about-intro-image fade-in-left delay-300">
               <div className="about-image-container">
+                <img src="/azienda.jpg" alt="Sede Citysan" className="about-image" />
                 <div className="about-image-overlay"></div>
                 <div className="about-image-frame"></div>
               </div>
