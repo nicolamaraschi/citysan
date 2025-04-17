@@ -1,25 +1,18 @@
+// Header.js - Versione migliorata con navbar trasparente
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    if (showDropdown) setShowDropdown(false);
-  };
-
-  const toggleDropdown = (e) => {
-    e.preventDefault();
-    setShowDropdown(!showDropdown);
-  };
-
+  // Gestisce lo scroll e cambia lo stile della navbar
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      const offset = window.scrollY;
+      if (offset > 80) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -32,11 +25,11 @@ function Header() {
     };
   }, []);
 
-  // Chiudi il menu se si clicca all'esterno
+  // Chiude il menu mobile quando si clicca all'esterno
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest('.nav-menu') && !event.target.closest('.mobile-menu-button')) {
-        setIsMenuOpen(false);
+      if (menuOpen && !event.target.closest('.navbar') && !event.target.closest('.mobile-menu-toggle')) {
+        setMenuOpen(false);
       }
     };
 
@@ -44,69 +37,91 @@ function Header() {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, [menuOpen]);
+
+  // Gestisce i dropdown
+  const toggleDropdown = (index) => {
+    setActiveDropdown(activeDropdown === index ? null : index);
+  };
+
+  // Chiude il menu mobile e il dropdown attivo
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setActiveDropdown(null);
+  };
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container header-container">
-        <div className="logo-container">
-          <Link to="/">
-            <div className="logo">
-              <img src="/Citysan-HQ.jpg" alt="Citysan Logo" className="logo-image" />
-            </div>
+      <div className="header-container container">
+        <div className="logo-wrapper">
+          <Link to="/" className="logo-link">
+            <img src="/Citysan-HQ.png" alt="Citysan Logo" className="logo" />
           </Link>
         </div>
-        
-        <div className={`mobile-menu-button ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        
-        <nav className={isMenuOpen ? "nav-menu open" : "nav-menu"}>
+
+        <button 
+          className={`mobile-menu-toggle ${menuOpen ? 'open' : ''}`} 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className="toggle-bar"></span>
+          <span className="toggle-bar"></span>
+          <span className="toggle-bar"></span>
+        </button>
+
+        <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
           <ul className="nav-list">
             <li className="nav-item">
-              <Link to="/" onClick={() => setIsMenuOpen(false)} className="nav-link">
-                <span className="nav-link-icon home-icon"></span>
-                <span className="nav-link-text">HOME</span>
+              <Link to="/" className="nav-link" onClick={closeMenu}>
+                Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/chi-siamo" onClick={() => setIsMenuOpen(false)} className="nav-link">
-                <span className="nav-link-icon about-icon"></span>
-                <span className="nav-link-text">CHI SIAMO</span>
+              <Link to="/chi-siamo" className="nav-link" onClick={closeMenu}>
+                Chi Siamo
               </Link>
             </li>
             <li className="nav-item dropdown">
-              <a href="#" className="nav-link" onClick={toggleDropdown}>
-                <span className="nav-link-icon products-icon"></span>
-                <span className="nav-link-text">PRODOTTI</span>
-                <span className={`dropdown-arrow ${showDropdown ? 'open' : ''}`}></span>
-              </a>
-              {showDropdown && (
-                <ul className="dropdown-menu">
-                  <li><Link to="/prodotti/laundry-care" onClick={() => {setIsMenuOpen(false); setShowDropdown(false);}}>Laundry Care</Link></li>
-                  <li><Link to="/prodotti/cleaning-house" onClick={() => {setIsMenuOpen(false); setShowDropdown(false);}}>Cleaning House</Link></li>
-                  <li><Link to="/prodotti/wet-wipes" onClick={() => {setIsMenuOpen(false); setShowDropdown(false);}}>Wet Wipes</Link></li>
-                </ul>
-              )}
+              <button 
+                className={`nav-link dropdown-toggle ${activeDropdown === 0 ? 'active' : ''}`} 
+                onClick={() => toggleDropdown(0)}
+              >
+                Prodotti
+                <svg className="dropdown-icon" viewBox="0 0 24 24">
+                  <path d="M7 10l5 5 5-5z"></path>
+                </svg>
+              </button>
+              <div className={`dropdown-menu ${activeDropdown === 0 ? 'open' : ''}`}>
+                <Link to="/prodotti/laundry-care" className="dropdown-item" onClick={closeMenu}>
+                  Laundry Care
+                </Link>
+                <Link to="/prodotti/cleaning-house" className="dropdown-item" onClick={closeMenu}>
+                  Cleaning House
+                </Link>
+                <Link to="/prodotti/wet-wipes" className="dropdown-item" onClick={closeMenu}>
+                  Wet Wipes
+                </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link to="/contatti" onClick={() => setIsMenuOpen(false)} className="nav-link">
-                <span className="nav-link-icon contact-icon"></span>
-                <span className="nav-link-text">CONTATTI</span>
+              <Link to="/contatti" className="nav-link" onClick={closeMenu}>
+                Contatti
               </Link>
             </li>
           </ul>
-          
-          <div className="nav-contact-info">
-            <a href="tel:+390424550283" className="nav-contact-link">
-              <span className="nav-contact-icon phone-icon"></span>
-              <span>+39 0424 550283</span>
+
+          <div className="nav-buttons">
+            <a href="tel:+390424550283" className="nav-contact-button phone">
+              <svg className="button-icon" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
+              </svg>
+              <span className="button-text">+39 0424 550283</span>
             </a>
-            <a href="mailto:citysan@citysan.it" className="nav-contact-link">
-              <span className="nav-contact-icon email-icon"></span>
-              <span>citysan@citysan.it</span>
+            <a href="mailto:citysan@citysan.it" className="nav-contact-button email">
+              <svg className="button-icon" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+              </svg>
+              <span className="button-text">Email</span>
             </a>
           </div>
         </nav>

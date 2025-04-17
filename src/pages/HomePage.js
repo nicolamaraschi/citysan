@@ -1,8 +1,9 @@
+// HomePage.js - Aggiornato con i nuovi componenti
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import MissionSection from '../components/MissionSection';
-import ProductsSection from '../components/ProductsSection';
-import CertificationsSection from '../components/CertificationsSection';
+import ProductsOverviewSection from '../components/ProductsOverviewSection';
+import QualityCommitmentSection from '../components/QualityCommitmentSection';
 import StatsSection from '../components/StatsSection';
 import '../styles/HomePage.css';
 
@@ -20,7 +21,7 @@ function HomePage() {
       
       <MissionSection />
       
-      <ProductsSection />
+      <ProductsOverviewSection />
       
       <div className="about-preview">
         <div className="container">
@@ -32,7 +33,7 @@ function HomePage() {
         </div>
       </div>
       
-      <CertificationsSection />
+      <QualityCommitmentSection />
       
       <StatsSection />
     </div>
