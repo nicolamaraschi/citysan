@@ -1,0 +1,414 @@
+/* TeamSection.css */
+.team-section {
+    padding: 100px 0;
+    position: relative;
+    background-color: #f8f9fa;
+    overflow: hidden;
+  }
+  
+  .team-background-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%230066cc' fill-opacity='0.05' d='M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,165.3C672,192,768,224,864,224C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center bottom;
+    opacity: 0.7;
+    z-index: 0;
+  }
+  
+  .team-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .team-title {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .team-divider {
+    height: 3px;
+    width: 70px;
+    background-color: var(--accent-color);
+    margin: 0 auto 20px;
+  }
+  
+  .team-subtitle {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .team-content {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Tabs Navigation */
+  .team-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f2f6fc;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .team-tab {
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .team-tab.active {
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.1);
+  }
+  
+  .team-tab:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .tab-icon {
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .overview-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M16.5,12C16.5,14.5 14.5,16.5 12,16.5C9.5,16.5 7.5,14.5 7.5,12C7.5,9.5 9.5,7.5 12,7.5C14.5,7.5 16.5,9.5 16.5,12M12,9.5A2.5,2.5 0 0,0 9.5,12A2.5,2.5 0 0,0 12,14.5A2.5,2.5 0 0,0 14.5,12A2.5,2.5 0 0,0 12,9.5M10,2H14A2,2 0 0,1 16,4V6H8V4A2,2 0 0,1 10,2M4,8H8V6H4V8M16,6V8H20V6H16M2,9.5V11.5H22V9.5H2M12,17.5A2,2 0 0,0 10,19.5V22H14V19.5A2,2 0 0,0 12,17.5Z'/%3E%3C/svg%3E");
+  }
+  
+  .research-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M18.36,2.64C17.61,2.18 16.7,2 15.79,2.05C14.88,2.11 14,2.45 13.29,3.04C12.03,4.25 11.5,6.15 11.93,7.87C10.97,8.2 10.08,8.79 9.37,9.58C8.33,10.71 7.78,12.21 7.86,13.74C7.94,15.23 8.65,16.58 9.76,17.5C8.83,18.23 8.11,19.25 7.74,20.5C9,20.74 10.23,20.54 11.24,19.93C11.59,20.19 11.97,20.4 12.37,20.58C12.76,20.76 13.17,20.9 13.58,21C14.94,21.07 16.28,20.54 17.25,19.56C18.97,18 19.39,15.56 18.39,13.59C18.88,12.96 19.21,12.19 19.31,11.34C19.41,10.5 19.27,9.65 18.94,8.87L22,7.33L19.33,5.89L18.36,2.64M16.17,18.13C15.37,18.8 14.23,18.89 13.33,18.37C12.95,18.16 12.62,17.89 12.36,17.58C12.37,17.55 12.37,17.52 12.37,17.5C12.37,17.44 12.36,17.38 12.34,17.31C12.34,17.31 12.36,17.3 12.36,17.3C12.4,17.26 12.44,17.22 12.47,17.17C12.5,17.12 12.54,17.08 12.57,17.04C12.59,17.01 12.61,16.98 12.64,16.94C13.62,15.94 14.39,13.92 14.4,13.82C14.41,13.74 14.39,13.66 14.35,13.59C14.3,13.52 14.24,13.46 14.16,13.43L13.43,13.2L13.35,13.18C13.31,13.17 11.33,12.37 10.34,13.4C10.32,13.42 10.31,13.45 10.29,13.47C10.25,13.5 10.21,13.55 10.19,13.59C10.17,13.63 10.15,13.67 10.13,13.71C10.11,13.75 10.1,13.8 10.09,13.85C10.09,13.87 10.08,13.9 10.08,13.93L9.96,14.61C9.9,14.86 9.88,15.12 9.9,15.37C8.97,14.25 8.64,12.72 9.06,11.34C9.31,10.58 9.78,9.89 10.38,9.33C11.04,8.71 11.89,8.28 12.81,8.11C12.94,8.09 13.06,8.07 13.18,8.06C13.38,9.41 14.13,10.67 15.36,11.53C15.12,11.76 14.91,12.03 14.75,12.32C14.77,12.31 14.79,12.3 14.82,12.29C15.82,11.68 17.17,12.13 17.17,12.13L17.14,12.21C17.13,12.27 16.89,14.45 15.5,15.87C15.17,16.19 14.71,16.39 14.26,16.43C14.44,16.06 14.5,15.64 14.43,15.23L14.35,14.57C14.35,14.57 14.34,14.55 14.34,14.55C14.33,14.5 14.31,14.45 14.29,14.41C14.27,14.36 14.24,14.32 14.21,14.29C14.18,14.25 14.14,14.22 14.1,14.19C14.1,14.19 14.09,14.19 14.09,14.19L13.37,13.66C13.29,13.6 13.19,13.57 13.09,13.58C13,13.59 12.91,13.63 12.84,13.71C12.84,13.71 11.73,15 11.73,16.31C11.73,16.5 11.78,16.69 11.86,16.85C11.64,16.12 11.68,15.3 12,14.61C12.79,14.95 13.15,15.8 13.15,15.8C13.17,15.84 13.2,15.88 13.22,15.91C13.25,15.94 13.29,15.97 13.33,16C13.36,16.02 13.4,16.03 13.43,16.05C13.47,16.06 13.5,16.07 13.54,16.07C13.56,16.07 13.59,16.07 13.62,16.06L14.28,15.95C14.54,15.9 14.77,15.78 14.94,15.6C15.6,16.39 16.1,17.1 16.17,18.13Z'/%3E%3C/svg%3E");
+  }
+  
+  .production-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12,3L2,12H5V20H19V12H22M9,18H7V12H9M13,18H11V10H13M17,18H15V14H17Z'/%3E%3C/svg%3E");
+  }
+  
+  .quality-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M10,17L5,12L6.41,10.59L10,14.17L17.59,6.58L19,8L10,17Z'/%3E%3C/svg%3E");
+  }
+  
+  .logistics-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M18 18.5C18.83 18.5 19.5 17.83 19.5 17C19.5 16.17 18.83 15.5 18 15.5C17.17 15.5 16.5 16.17 16.5 17C16.5 17.83 17.17 18.5 18 18.5M19.5 9.5H17V12H21.46L19.5 9.5M6 18.5C6.83 18.5 7.5 17.83 7.5 17C7.5 16.17 6.83 15.5 6 15.5C5.17 15.5 4.5 16.17 4.5 17C4.5 17.83 5.17 18.5 6 18.5M20 8L23 12V17H21C21 18.66 19.66 20 18 20S15 18.66 15 17H9C9 18.66 7.66 20 6 20S3 18.66 3 17H1V6C1 4.89 1.89 4 3 4H17V8H20M3 6V15H3.76C4.31 14.39 5.11 14 6 14C6.89 14 7.69 14.39 8.24 15H15V6H3Z'/%3E%3C/svg%3E");
+  }
+  
+  .tab-text {
+    font-size: 0.95rem;
+  }
+  
+  /* Tab Content */
+  .team-tab-content {
+    padding: 30px;
+  }
+  
+  /* Overview Tab */
+  .team-overview-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .team-image-container {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 350px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/team-photo.jpg'); /* Sostituisci con l'URL della tua immagine */
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+  }
+  
+  .team-image-container:hover .team-image {
+    transform: scale(1.05);
+  }
+  
+  .team-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 102, 204, 0.7) 100%);
+  }
+  
+  .team-image-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 15px;
+    font-weight: 700;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .team-description p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--light-text-color);
+    margin-bottom: 20px;
+  }
+  
+  .team-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 20px;
+  }
+  
+  .team-value {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .value-icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: #f0f7ff;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+  }
+  
+  .expertise-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z'/%3E%3C/svg%3E");
+  }
+  
+  .passion-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z'/%3E%3C/svg%3E");
+  }
+  
+  .innovation-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12,2A7,7 0 0,1 19,9C19,11.38 17.81,13.47 16,14.74V17A1,1 0 0,1 15,18H9A1,1 0 0,1 8,17V14.74C6.19,13.47 5,11.38 5,9A7,7 0 0,1 12,2M9,21V20H15V21A1,1 0 0,1 14,22H10A1,1 0 0,1 9,21M12,4A5,5 0 0,0 7,9C7,11.05 8.23,12.81 10,13.58V16H14V13.58C15.77,12.81 17,11.05 17,9A5,5 0 0,0 12,4Z'/%3E%3C/svg%3E");
+  }
+  
+  .teamwork-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z'/%3E%3C/svg%3E");
+  }
+  
+  .team-value h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin: 0;
+  }
+  
+  /* Department Tab */
+  .department-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .department-header {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .department-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 102, 204, 0.1);
+    border-radius: 50%;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+  }
+  
+  .department-header h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0;
+  }
+  
+  .department-description {
+    padding-right: 20px;
+  }
+  
+  .department-description p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--light-text-color);
+    margin-bottom: 20px;
+  }
+  
+  .department-role {
+    background-color: #f0f7ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .department-role h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .department-role p {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  
+  .department-stats {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .department-stat {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+  }
+  
+  .department-image {
+    height: 100%;
+    min-height: 300px;
+    background-color: #f2f6fc;
+    border-radius: 10px;
+    background-image: url('/department-image.jpg'); /* Sostituisci con l'URL della tua immagine */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Media Queries */
+@media (max-width: 992px) {
+    .team-section {
+      padding: 80px 0;
+    }
+    
+    .team-overview-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .department-details {
+      grid-template-columns: 1fr;
+    }
+    
+    .department-header {
+      justify-content: center;
+    }
+    
+    .department-image {
+      min-height: 250px;
+    }
+    
+    .team-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .team-section {
+      padding: 60px 0;
+    }
+    
+    .team-title {
+      font-size: 2.2rem;
+    }
+    
+    .team-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .team-values {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .team-value {
+      flex: 0 0 calc(50% - 15px);
+    }
+    
+    .team-tabs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tab-text {
+      font-size: 0.85rem;
+    }
+    
+    .team-tab-content {
+      padding: 20px;
+    }
+    
+    .department-stats {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .team-tabs {
+      grid-template-columns: 1fr;
+    }
+    
+    .team-value {
+      flex: 0 0 100%;
+    }
+  }

@@ -1,7 +1,8 @@
-// HomePage.js - Aggiornato con i nuovi componenti
+// HomePage.js
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import MissionSection from '../components/MissionSection';
+import AboutPreview from '../components/AboutPreview';
 import ProductsOverviewSection from '../components/ProductsOverviewSection';
 import QualityCommitmentSection from '../components/QualityCommitmentSection';
 import StatsSection from '../components/StatsSection';
@@ -23,15 +24,7 @@ function HomePage() {
       
       <ProductsOverviewSection />
       
-      <div className="about-preview">
-        <div className="container">
-          <h2>CHI SIAMO</h2>
-          <p>
-            Citysan è stata fondata nel 2009 in una sede di 1500 metri quadri e fin dall'inizio si è concentrata sulla progettazione, produzione e fornitura di prodotti di alta qualità con una completa tracciabilità delle sue materie prime; il suo vero vantaggio: flessibilità e capacità di cercare soluzioni innovative.
-          </p>
-          <a href="/chi-siamo" className="read-more-button">Continua a leggere</a>
-        </div>
-      </div>
+      <AboutPreview />
       
       <QualityCommitmentSection />
       
