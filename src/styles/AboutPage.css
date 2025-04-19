@@ -564,3 +564,7 @@
     position: relative;
     overflow: hidden;
   }
+
+  .team-chart {
+    margin-top: 50px;
+  }

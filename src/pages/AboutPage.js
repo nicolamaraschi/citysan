@@ -1,6 +1,9 @@
+// src/pages/AboutPage.js
 import React from 'react';
 import '../styles/AboutPage.css';
 import '../styles/animations.css';
+import Certifications from '../components/Certifications';
+import OrganizationChart from '../components/OrganizationChart';
 
 function AboutPage() {
   return (
@@ -130,31 +133,8 @@ function AboutPage() {
         </div>
       </section>
       
-      
-      <section className="certifications-highlight">
-        <div className="container">
-          <div className="certifications-content">
-            <div className="certifications-text fade-in-right">
-              <h2>LE NOSTRE CERTIFICAZIONI</h2>
-              <div className="section-divider"></div>
-              <p>
-                La Qualità assoluta per noi significa controllo di tutti i materiali utilizzati in tutta la filiera a partire dall'utilizzo di fornitori certificati terminando con un servizio post-vendita.
-              </p>
-              <ul className="certifications-list">
-                <li>Certificati ISO9001 dall'inizio attività (attualmente in edizione UNI EN ISO9001:2015)</li>
-                <li>Certificati con lo standard IFS-HPC Version 3 "Scope 2" dal Gennaio 2018</li>
-              </ul>
-              <p>
-                I nostri prodotti rispettano tutte le normative vigenti a tutela della salute del consumatore e della natura dei paesi di distribuzione.
-              </p>
-            </div>
-            <div className="certifications-logos fade-in-left delay-300">
-              <div className="certification-logo">ISO 9001:2015</div>
-              <div className="certification-logo">IFS-HPC Version 3</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Sostituisci la vecchia sezione certificazioni con il nuovo componente */}
+      <Certifications />
       
       <section className="team-section">
         <div className="container">
@@ -171,6 +151,11 @@ function AboutPage() {
             <p>
               Dalla ricerca e sviluppo alla produzione, dal controllo qualità alla logistica, ogni reparto lavora in sinergia per assicurare che i prodotti Citysan siano sempre all'altezza delle aspettative dei nostri clienti.
             </p>
+          </div>
+          
+          {/* Organigramma aziendale */}
+          <div className="team-chart fade-in delay-300">
+            <OrganizationChart />
           </div>
         </div>
       </section>

@@ -1,0 +1,514 @@
+/* Aggiorna src/styles/Certifications.css con questi stili */
+
+.certifications-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    position: relative;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .section-header h2 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .section-divider {
+    height: 3px;
+    width: 70px;
+    background-color: var(--accent-color);
+    margin: 0 auto 20px;
+  }
+  
+  .section-description {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--light-text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+  }
+  
+  .certification-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .certification-card.active {
+    background-color: #f0f8ff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cert-title {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: block;
+  }
+  
+  .cert-preview-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    min-height: 160px;
+    overflow: hidden;
+  }
+  
+  .cert-preview {
+    max-width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  .certification-card:hover .cert-preview {
+    transform: scale(1.05);
+  }
+  
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .image-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--light-text-color);
+  }
+  
+  .cert-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 102, 204, 0.1);
+    border-radius: 50%;
+    margin-bottom: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12,10.5H13V13.5H12V10.5M7,11.5H8V10.5H7V11.5M20,6V18A2,2 0 0,1 18,20H6A2,2 0 0,1 4,18V6A2,2 0 0,1 6,4H18A2,2 0 0,1 20,6M9.5,10.5A1.5,1.5 0 0,0 8,9H5.5V15H7V13H8A1.5,1.5 0 0,0 9.5,11.5V10.5M14.5,10.5A1.5,1.5 0 0,0 13,9H10.5V15H13A1.5,1.5 0 0,0 14.5,13.5V10.5M18.5,9H15.5V15H17V13H18.5V11.5H17V10.5H18.5V9Z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+  }
+  
+  /* Stili migliorati per l'anteprima PDF */
+  .pdf-preview {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .pdf-preview-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: white;
+    margin-right: 15px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .pdf-icon {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+  
+  .pdf-extension {
+    font-size: 0.65rem;
+    font-weight: bold;
+    margin-top: 3px;
+  }
+  
+  .pdf-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .pdf-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+  }
+  
+  .pdf-size {
+    font-size: 0.8rem;
+    color: var(--light-text-color);
+  }
+  
+  .cert-view {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .certification-card:hover .cert-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Modal per visualizzazione certificato */
+  .certification-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  .certification-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #444;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+  }
+  
+  .modal-close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .cert-full-image {
+    max-width: 100%;
+    max-height: calc(90vh - 60px);
+    object-fit: contain;
+  }
+  
+  .pdf-container {
+    text-align: center;
+  }
+  
+  .pdf-modal-title {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+  }
+  
+  .pdf-message {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .pdf-message-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .pdf-msg-icon {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+  }
+  
+  .pdf-message-text {
+    flex: 1;
+  }
+  
+  .pdf-message-text p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+  
+  .pdf-message-text p:first-child {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .download-link:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  .download-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+  
+  .pdf-viewer {
+    width: 100%;
+    height: calc(90vh - 180px);
+    border: 1px solid #eee;
+    border-radius: 4px;
+  }
+  
+  .pdf-fallback {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .image-error {
+    padding: 30px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    color: var(--light-text-color);
+  }
+  
+  /* Citazione */
+  .certification-quote {
+    margin-top: 60px;
+  }
+  
+  .certification-quote blockquote {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    background-color: white;
+    border-left: 5px solid var(--primary-color);
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--light-text-color);
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  .certification-quote blockquote::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 60px;
+    color: var(--primary-color);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive design */
+  @media (max-width: 992px) {
+    .certifications-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .certification-modal-content {
+      max-width: 95%;
+    }
+    
+    .pdf-message {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .pdf-message-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    
+    .download-link {
+      margin: 15px auto 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .certifications-section {
+      padding: 60px 0;
+    }
+    
+    .certifications-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cert-title {
+      font-size: 1rem;
+    }
+    
+    .certification-quote blockquote {
+      padding: 25px 20px 25px 35px;
+      font-size: 0.95rem;
+    }
+    
+    .pdf-viewer {
+      height: calc(80vh - 180px);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .certifications-grid {
+      grid-template-columns: 1fr;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cert-preview-container {
+      min-height: 180px;
+    }
+    
+    .certification-modal-content {
+      max-width: 95%;
+      max-height: 80vh;
+      padding: 15px 10px;
+    }
+    
+    .cert-full-image {
+      max-height: calc(80vh - 50px);
+    }
+    
+    .modal-close {
+      top: 5px;
+      right: 5px;
+    }
+    
+    .pdf-modal-title {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+  }
+
+ 
+
+.pdf-preview-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .pdf-preview-image {
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  .certification-card:hover .pdf-preview-image {
+    transform: scale(1.05);
+  }
+  
+  .pdf-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .pdf-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }

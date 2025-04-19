@@ -1,0 +1,299 @@
+/* src/styles/OrganizationChart.css */
+.organization-chart-container {
+    padding: 40px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .chart-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .chart-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background-color: var(--accent-color);
+  }
+  
+  .org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .org-level {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+  }
+  
+  .level-1 {
+    margin-bottom: 40px;
+  }
+  
+  .level-2 {
+    margin-bottom: 40px;
+    gap: 40px;
+  }
+  
+  .level-3 {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .org-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    transition: all 0.3s ease;
+    min-width: 160px;
+  }
+  
+  .level-1 .org-box {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .level-2 .org-box {
+    background-color: rgba(0, 102, 204, 0.1);
+  }
+  
+  .level-3 .org-box {
+    flex: 0 0 calc(33.33% - 20px);
+    min-width: 130px;
+    padding: 12px;
+  }
+  
+  .org-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .org-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .org-avatar {
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .level-2 .avatar-placeholder {
+    background-color: rgba(0, 102, 204, 0.2);
+  }
+  
+  .org-info {
+    text-align: left;
+  }
+  
+  .org-info.simple {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .org-name {
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+  }
+  
+  .level-1 .org-name {
+    color: white;
+  }
+  
+  .level-2 .org-name {
+    color: var(--primary-color);
+  }
+  
+  .org-position {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .level-1 .org-position {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .level-3 .org-position {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  /* Linee di connessione */
+  .org-connectors {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+    position: relative;
+  }
+  
+  .level-1-2 {
+    height: 30px;
+  }
+  
+  .level-1-2 .connector-wrapper {
+    flex: 0 0 1px;
+    height: 100%;
+    position: relative;
+  }
+  
+  .level-1-2 .connector {
+    width: 1px;
+    height: 100%;
+    background-color: rgba(0, 102, 204, 0.3);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .level-2-3 {
+    height: 30px;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  
+  .level-2-3 .connector-wrapper {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    position: relative;
+  }
+  
+  .level-2-3 .connector {
+    width: 1px;
+    height: 100%;
+    background-color: rgba(0, 102, 204, 0.3);
+  }
+  
+  .organization-note {
+    text-align: center;
+    max-width: 700px;
+    margin: 30px auto 0;
+    padding: 20px;
+    background-color: rgba(0, 102, 204, 0.05);
+    border-radius: 10px;
+    line-height: 1.6;
+    color: var(--light-text-color);
+  }
+  
+  /* Media queries per responsive design */
+  @media (max-width: 992px) {
+    .org-level {
+      flex-wrap: wrap;
+    }
+    
+    .level-2 {
+      gap: 20px;
+    }
+    
+    .level-3 .org-box {
+      flex: 0 0 calc(50% - 20px);
+    }
+    
+    .level-2-3 {
+      display: none; /* Nascondiamo i connettori su schermi piccoli */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .level-1 .org-box,
+    .level-2 .org-box,
+    .level-3 .org-box {
+      flex: 0 0 100%;
+      max-width: 300px;
+      margin: 0 auto 15px;
+    }
+    
+    .level-1-2 {
+      display: none; /* Nascondiamo i connettori su schermi piccoli */
+    }
+    
+    .organization-chart-container {
+      padding: 30px 15px;
+    }
+    
+    .chart-title {
+      font-size: 1.5rem;
+    }
+  }
+
+
+  /* Aggiungi questi stili a src/styles/OrganizationChart.css */
+
+.role-icon {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    opacity: 0.9;
+  }
+  
+  .org-department-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 102, 204, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+  }
+  
+  .dept-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--primary-color);
+  }
+  
+  .level-3 .org-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .level-3 .org-info.simple {
+    text-align: left;
+  }
+  
+  @media (max-width: 768px) {
+    .role-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .org-department-icon {
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;
+    }
+    
+    .dept-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
